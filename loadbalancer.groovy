@@ -8,11 +8,13 @@ pipeline {
             }
         }
         stage('loadbalancer_terraform') {
+            steps{
             sh """
             cd for_loadbalancer
             terraform init
             terraform apply -var-file="dev.tfvars
             """
+        }
         }
     }
 }
