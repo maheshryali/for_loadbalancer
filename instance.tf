@@ -19,7 +19,7 @@ resource "null_resource" "fornginx" {
   connection {
     type        =  "ssh"
     user        =  "ubuntu"
-    private_key =  file("~/.ssh/id_rsa")
+    private_key =  file("./id_rsa")
     host        =  aws_instance.web[0].public_ip
   }
   provisioner "remote-exec" {
