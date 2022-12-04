@@ -11,7 +11,7 @@ resource "aws_instance" "web" {
     Name = var.instance_names[count.index]
   }
 }
-
+/*
 resource "null_resource" "fornginx" {
   triggers = {
     running_numbers = 1.0
@@ -19,10 +19,10 @@ resource "null_resource" "fornginx" {
   connection {
     type        =  "ssh"
     user        =  "ubuntu"
-    private_key =  file("~/id_rsa")
+    private_key =  file("~/.ssh/id_rsa")
     host        =  aws_instance.web[0].public_ip
   }
-  provisioner "remote-exec" {
+  #provisioner "remote-exec" {
     inline = [
       "sudo apt update",
       "sudo apt install nginx -y"
@@ -33,3 +33,4 @@ resource "null_resource" "fornginx" {
     aws_instance.web
   ]
 }
+*/
